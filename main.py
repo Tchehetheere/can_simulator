@@ -10,7 +10,7 @@ def send_one(id, dt):
     with can.Bus() as bus:
         
         # Using specific buses works similar:
-        bus = can.Bus(interface='socketcan', channel='can0', bitrate=500000)
+        bus = can.Bus(interface='socketcan', channel='can0', bitrate=250000)
         msg = can.Message(arbitration_id = id, data = dt, is_extended_id = True, channel = "can0")
 
         try:
