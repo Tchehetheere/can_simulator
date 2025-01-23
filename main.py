@@ -57,6 +57,15 @@ def send_one(id, dt, counter):
         retries += 1
     
 def main():
+    # Directory check
+    path = "./output"
+    if not os.path.exists(path):
+        try:
+            os.mkdir(path)
+            print("[SUCCESS] [Directory Created]")
+        except OSError as e:
+            print(f"[ERROR] [{e}]")
+            
     fileName = f"./output/{datetime.datetime.now()}-ID LIST TRANSMITTED.txt"
     with open(fileName, "w") as outFile:
         with open(source, mode="r") as file:
